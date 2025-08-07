@@ -11,7 +11,7 @@ services:
   # 2. The Qdrant Vector Database (running in a Docker container)
   - name: qdrant-db
     type: pserv # Private Service
-    dockerImage: qdrant/qdrant:latest
+    dockerImage: qdrant/qdrant:v1.9.0
     # Mount the persistent disk
     disk:
       name: qdrant-data
