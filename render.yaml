@@ -1,4 +1,4 @@
-# render.yaml
+ render.yaml
 services:
   # 1. A persistent disk to store your vector database data
   - name: qdrant-disk
@@ -7,7 +7,6 @@ services:
       name: qdrant-data
       mountPath: /qdrant/storage
       sizeGB: 1
-
   # 2. The Qdrant Vector Database
   - name: qdrant-db
     type: pserv
@@ -15,12 +14,10 @@ services:
     disk:
       name: qdrant-data
       mountPath: /qdrant/storage
-
   # 3. The Redis instance for your job queue
   - name: redis
     type: redis
     plan: free
-
   # 4. The FastAPI Web Server (your API)
   - name: api-server
     type: web
@@ -41,7 +38,6 @@ services:
           name: qdrant-db
       - key: HF_TOKEN
         sync: false
-
   # 5. The Celery Background Worker
   - name: celery-worker
     type: worker
