@@ -1,0 +1,27 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+  # The Qdrant vector database service
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant_db
+    ports:
+      - "6333:6333" # Exposes the Qdrant REST API to your local machine
+    volumes:
+      - qdrant_data:/qdrant/storage # Persists Qdrant data on your local disk
+
+  # The Redis service for the Celery job queue
+  redis:
+    image: redis:latest
+    container_name: redis_broker
+    ports:
+      - "6379:6379" # Exposes the Redis port to your local machine
+    volumes:
+      - redis_data:/data # Persists Redis data
+
+# Defines the named volumes used by the services above
+volumes:
+  qdrant_data:
+  redis_data:

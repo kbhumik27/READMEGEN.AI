@@ -1,0 +1,19 @@
+# Web Server
+fastapi
+uvicorn
+
+# Background Jobs
+celery
+redis
+
+# RAG & LLM Framework (LangChain)
+langchain
+langchain-community
+langchain-huggingface
+langchain-qdrant
+
+# Utilities
+gitpython
+python-dotenv
+protobuf
+sentence-transformers
