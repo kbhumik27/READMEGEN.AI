@@ -16,5 +16,5 @@ COPY . .
 # Expose the port the app runs on
 EXPOSE 8000
 
-# Define environment variable
-ENV NAME World
+# Start the FastAPI app
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
